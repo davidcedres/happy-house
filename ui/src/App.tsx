@@ -1,35 +1,69 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Button, Card, Container, Flex, Heading, Text, TextField, Theme } from '@radix-ui/themes'
+import houseImg from "../public/house.jpg"
+import { Armchair, Droplet, House, LandPlot, } from 'lucide-react'
+import PropertyCard from './components/PropertyCard'
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+
+		<Flex direction="column">
+			<Flex direction="row" gap="4" justify="between" align="center" p="4">
+				<Flex direction="row" gap="2">
+					<House />
+					<Heading>YOUR HOME IS THERE</Heading>
+				</Flex>
+				<Flex direction="row" gap="4">
+					<Text>Buy</Text>
+					<Text>Rent</Text>
+					<Text>Sell</Text>
+					<Text>Rent out</Text>
+				</Flex>
+				<Flex direction="row" gap="4">
+					<TextField.Root
+						placeholder='Search'
+						autoFocus
+					/>
+					<Text>Log in</Text>
+					<Text>En</Text>
+				</Flex>
+			</Flex>
+
+
+			<Flex direction="row" gap="9" p="4">
+				<p>PROPERTY TYPE</p>
+
+
+				<Theme appearance='light'>
+					<Card >
+						<Flex direction="row" gap="4">
+
+							<Flex direction="column" gap="4" align="start">
+								<Heading>Search results</Heading>
+								<PropertyCard />
+								<PropertyCard />
+								<PropertyCard />
+							</Flex>
+
+							<Card>
+								<img
+									alt='House'
+									src={houseImg}
+									style={{
+										width: "500px",
+										borderRadius: "8px",
+									}} />
+							</Card>
+
+						</Flex>
+					</Card>
+
+				</Theme>
+			</Flex>
+		</Flex >
+
+	)
 }
 
 export default App
